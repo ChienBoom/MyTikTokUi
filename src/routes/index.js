@@ -3,7 +3,6 @@ import Follow from '~/pages/Follow';
 import Upload from '~/pages/Upload';
 import Profile from '~/pages/Profile';
 import DefaultLayout from '~/Layout/DefaultLayout';
-import UploadLayout from '~/Layout/UploadLayout';
 
 const publicRoute = [
     {
@@ -19,12 +18,12 @@ const publicRoute = [
     {
         path: '/upload',
         component: Upload,
-        layout: UploadLayout,
+        layout: DefaultLayout,
     },
     {
-        path: '/profile',
+        path: '/@:nickname',
         component: Profile,
-        layout: UploadLayout,
+        layout: DefaultLayout,
     },
 ];
 

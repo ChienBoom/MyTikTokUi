@@ -2,25 +2,23 @@ import classNames from 'classnames/bind';
 import styles from './SearchAccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import Image from '~/components/Image';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountIntem() {
+function AccountIntem({ children }) {
     return (
-        <div className={cx('wrapper')}>
-            <img
-                className={cx('avatar')}
-                src="https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg"
-                alt="avatar"
-            />
+        <Link to={`/@${children.nickname}`} className={cx('wrapper')}>
+            <Image className={cx('avatar')} src={children.avatar} alt="avatar" />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
-                    <span>NguyenVanA</span>
-                    <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                    <span>{children.full_name}</span>
+                    {children.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
                 </h4>
-                <span className={cx('usrname')}>nguyenvana</span>
+                <span className={cx('username')}>{children.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
 }
 
