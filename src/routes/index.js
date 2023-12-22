@@ -3,25 +3,31 @@ import Follow from '~/pages/Follow';
 import Upload from '~/pages/Upload';
 import Profile from '~/pages/Profile';
 import DefaultLayout from '~/Layout/DefaultLayout';
+import config from '~/config';
 
 const publicRoute = [
     {
-        path: '/',
+        path: config.routes.home,
         component: Home,
         layout: DefaultLayout,
     },
     {
-        path: '/follow',
+        path: config.routes.follow,
         component: Follow,
         layout: DefaultLayout,
     },
     {
-        path: '/upload',
+        path: config.routes.upload,
         component: Upload,
         layout: DefaultLayout,
     },
     {
-        path: '/@:nickname',
+        path: config.routes.profile,
+        component: Profile,
+        layout: DefaultLayout,
+    },
+    {
+        path: config.routes.search,
         component: Profile,
         layout: DefaultLayout,
     },
